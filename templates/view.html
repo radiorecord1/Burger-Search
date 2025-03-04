@@ -1,0 +1,29 @@
+{% extends "navbar.html" %}
+
+{% block title %}{{ item['name'] }} Details{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ item['name'] }}</h2>
+    <img src="{{ item['media'] }}" alt="{{ item['name'] }}" class="img-fluid">
+    
+    <p><strong>Address:</strong> {{ item['address'] }}</p>
+    <p><strong>Description:</strong> {{ item['description'] }}</p>
+    <p><strong>Average Price:</strong> ${{ item['average price'] if item['average price'] else 'N/A' }}</p>  <!-- Handle empty price -->
+    <p><strong>Rating:</strong> {{ item['rating'] }}</p>
+    
+    <h3>Popular Dishes:</h3>
+    {% if item['popular dishes'] %}
+        <ul>
+            {% for dish in item['popular dishes'] %}
+                <li>{{ dish }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No popular dishes available.</p>  <!-- Handle case with no popular dishes -->
+    {% endif %}
+    
+</div>
+{% endblock %}
+
+

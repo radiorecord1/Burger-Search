@@ -1,0 +1,17 @@
+{% extends "navbar.html" %}
+
+{% block title %}Burger Search {% endblock %}
+
+
+
+{% block content %}
+<div class="welcome-container">
+    <h1 class="welcome-title">Find the Best Non-Fast-Food Burger in Manhattan</h1>
+    <p class="welcome-text">Trying to find a quality burger made with 100% real beef that won't break the bank?.</p>
+</div>
+<div class="container mt-4">
+    <h2 class="text-center">Popular Burgers</h2>
+    <div id="popular-items" class="row"></div>  <!-- JavaScript will insert items here -->
+</div>
+<script src="{{ url_for('static', filename='hw6.js') }}" defer></script>
+{% endblock %}

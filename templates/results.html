@@ -1,0 +1,24 @@
+{% extends "navbar.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Search Results for "{{ query }}"</h2>
+    <p id="loading" style="display: none;">Searching...</p>
+    {% if results %}
+        <ul id="results-list">
+            {% for item in results %}
+                <li>
+                    <a href="{{ url_for('view_item', item_id=item.id) }}">{{ item.name }}</a> 
+                    - Rating: {{ item.rating }} 
+                    - Price: ${{ item['average price'] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
